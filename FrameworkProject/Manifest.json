@@ -1,0 +1,31 @@
+{
+  "modules": [
+    {
+      "type": "Package",
+      "nugetId": "Beckhoff.TwinCAT.HMI.Framework"
+    },
+    {
+      "type": "Resource",
+      "path": "./React/react.development.js"
+    },
+    {
+      "type": "Resource",
+      "path": "./React/react-dom.development.js"
+    },
+    {
+      "type": "Control",
+      "basePath": "./ReactControl",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": ""
+    }
+  ],
+  "provideMetadata": {
+    "toolbox": {
+      "FrameworkProject": {
+        "200": "FrameworkProject"
+      }
+    }
+  },
+  "$schema": ".hmiframework/Schema/Manifest.Schema.json",
+  "apiVersion": 1
+}

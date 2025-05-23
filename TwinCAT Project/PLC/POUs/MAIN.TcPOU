@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="MAIN" Id="{35a07d53-6cc6-4fd8-951a-f4fecd577379}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	bStartCmd		: BOOL;
+	bStopCmd		: BOOL;
+	fSpeedCmd		: LREAL;
+	bRunning		: BOOL;
+	fSpeedAct		: LREAL;
+	sName			: STRING := 'My React Faceplate';
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bStartCmd AND NOT bRunning THEN
+	bRunning := TRUE;
+END_IF
+
+IF bStopCmd AND bRunning THEN
+	bRunning := FALSE;
+END_IF
+
+IF bRunning THEN 
+	IF fSpeedAct < fSpeedCmd THEN
+		fSpeedAct := fSpeedAct + 0.25;
+	END_IF
+	IF fSpeedAct > fSpeedCmd THEN
+		fSpeedAct := fSpeedAct - 0.25;
+	END_IF
+END_IF
+
+IF NOT bRunning THEN
+	IF fSpeedAct > 0 THEN
+		fSpeedAct := fSpeedAct - 0.25;
+	END_IF
+	IF fSpeedAct < 0 THEN
+		fSpeedAct := 0;
+	END_IF
+END_IF
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

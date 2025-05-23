@@ -1,0 +1,169 @@
+{
+  "$schema": "../.hmiframework/Schema/ControlDescription.Schema.json",
+  "apiVersion": 1,
+  "name": "ReactControl",
+  "namespace": "TcHmi.Controls.FrameworkProject",
+  "displayName": "ReactControl",
+  "version": {
+    "full": "1.0.0.0",
+    "major": 1,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "visible": true,
+  "themeable": "Standard",
+  "base": "TcHmi.Controls.System.TcHmiControl",
+  "description": "This description text will be used as a Tooltip in Visual Studio.",
+  "properties": {
+    "containerControl": false,
+    "geometry": {
+      "width": 150,
+      "height": 150
+    }
+  },
+  "icons": [
+    {
+      "name": "Icons/16x16.png",
+      "width": 16,
+      "height": 16
+    }
+  ],
+  "template": "Template.html",
+  "dependencyFiles": [
+    {
+      "name": "ReactControl.js",
+      "type": "JavaScript",
+      "description": "Contains all the main logic."
+    },
+    {
+      "name": "Style.css",
+      "type": "Stylesheet",
+      "description": "Theme independent style"
+    },
+    {
+      "name": "../../react-app/bundled/Faceplate.js",
+      "type": "JavaScript",
+      "description": "Bundled component src"
+    }
+  ],
+    "themes": {
+        "Base": {
+            "resources": [
+                {
+                    "name": "Themes/Base/Style.css",
+                    "type": "Stylesheet",
+                    "description": "Theme dependent style"
+                }
+            ]
+        },
+        "Base-Dark": {
+            "resources": [
+                {
+                    "name": "Themes/Base-Dark/Style.css",
+                    "type": "Stylesheet",
+                    "description": "Theme dependent style"
+                }
+            ]
+        }
+    },
+  "attributes": [
+    {
+      "name": "data-tchmi-faceplate-title",
+      "displayName": "Title",
+      "propertyName": "title",
+      "propertyGetterName": "getTitle",
+      "propertySetterName": "setTitle",
+      "type": "tchmi:general#/definitions/String",
+      "visible": true,
+      "bindable": true,
+      "readOnly": false,
+      "description": "Faceplate Title",
+      "category": "Common"
+    },
+    {
+      "name": "data-tchmi-faceplate-running",
+      "displayName": "Run Feedback",
+      "propertyName": "isRunning",
+      "propertyGetterName": "getIsRunning",
+      "propertySetterName": "setIsRunning",
+      "type": "tchmi:general#/definitions/Boolean",
+      "visible": true,
+      "bindable": true,
+      "readOnly": false,
+      "description": "Faceplate Running Indicator",
+      "category": "Common"
+    },
+    {
+      "name": "data-tchmi-faceplate-start-cmd",
+      "displayName": "Start Cmd",
+      "propertyName": "startCmd",
+      "propertyGetterName": "getStartCmd",
+      "propertySetterName": "setStartCmd",
+      "type": "tchmi:framework#/definitions/TcHmiButtonStateSymbol",
+      "visible": true,
+      "bindable": true,
+      "readOnly": false,
+      "defaultBindingMode": "TwoWay",
+      "description": "Faceplate Start Command",
+      "category": "Common"
+    },
+    {
+      "name": "data-tchmi-faceplate-stop-cmd",
+      "displayName": "Stop Cmd",
+      "propertyName": "stopCmd",
+      "propertyGetterName": "getStopCmd",
+      "propertySetterName": "setStopCmd",
+      "type": "tchmi:framework#/definitions/TcHmiButtonStateSymbol",
+      "visible": true,
+      "bindable": true,
+      "readOnly": false,
+      "defaultBindingMode": "TwoWay",
+      "description": "Faceplate Stop Command",
+      "category": "Common"
+    },
+    {
+      "name": "data-tchmi-faceplate-speed-actual",
+      "displayName": "Actual Speed",
+      "propertyName": "speedActual",
+      "propertyGetterName": "getSpeedActual",
+      "propertySetterName": "setSpeedActual",
+      "type": "tchmi:general#/definitions/Number",
+      "visible": true,
+      "bindable": true,
+      "readOnly": false,
+      "description": "Faceplate Actual Speed",
+      "category": "Common"
+    },
+    {
+      "name": "data-tchmi-faceplate-speed-setpoint",
+      "displayName": "Speed Setpoint",
+      "propertyName": "speedSetpoint",
+      "propertyGetterName": "getSpeedSetpoint",
+      "propertySetterName": "setSpeedSetpoint",
+      "type": "tchmi:general#/definitions/Number",
+      "visible": true,
+      "bindable": true,
+      "defaultBindingMode": "TwoWay",
+      "readOnly": false,
+      "description": "Faceplate Speed Setpoint",
+      "category": "Common"
+    }
+  ],
+  "attributeCategories": [],
+  "functions": [],
+  "events": [
+    {
+      "category": "Control",
+      "displayName": "onSetpointChanged",
+      "visible": true,
+      "heritable": true,
+      "name": "onSetpointChanged"
+    }
+  ],
+  "dataTypes": [
+    {
+      "schema": "Schema/Types.Schema.json"
+    }
+  ]
+}
